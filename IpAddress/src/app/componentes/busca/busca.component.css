@@ -1,0 +1,46 @@
+.ip-adress{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ip-adress h5{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.input-ip{
+  width: 40%;
+  min-height: 50px;
+}
+
+.input-ip  button{
+  padding-right: 15px;
+  padding-left: 15px;
+  min-height: 50px;
+}
+
+.informations{
+  margin-top: 1%;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  max-width: 68%;
+  margin-bottom: 2%;
+}
+
+.title-information{
+  font-weight: 700;
+  color: hsl(0, 0%, 59%);
+  padding-top: 2%;
+}
+
+.result-information{
+  font-weight: 700;
+  font-size: 25px;
+  padding-bottom: 2%;
+}
+
