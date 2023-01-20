@@ -1,5 +1,7 @@
 <main>
-  <app-busca></app-busca>
+  <app-busca [location]="location"></app-busca>
   <div id="map"></div>
+  <p style="color: black;">latitude: {{location.location.lat}}</p>
+  <p style="color: black;">longitude: {{location.location.lng}}</p>
 </main>
 

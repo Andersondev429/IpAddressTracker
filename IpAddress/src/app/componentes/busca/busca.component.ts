@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-busca',
   templateUrl: './busca.component.html',
@@ -7,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscaComponent implements OnInit {
 
+  public ipText: any;
+
+
+  @Input() public location:any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  EnviarIp(){
+    console.log(this.ipText)
+  }
 }
