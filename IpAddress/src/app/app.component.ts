@@ -2,6 +2,7 @@ import { CommonService } from './common.service';
 import { Component, Input, OnInit } from '@angular/core';
 import  * as L from 'leaflet';
 import 'mapbox-gl-leaflet';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,27 @@ import 'mapbox-gl-leaflet';
 export class AppComponent implements OnInit{
   title = 'IpAddress';
 
-  public location:any;
+  public ipText: any;
+
+  public location: any;
+
+  public latitude: number = 37.38605;
+  public longitude: number = -122.08385;
+
   constructor(private CommonService:CommonService){
   }
 
+
+  receberIp(event: any){
+    this.ipText = event;
+    this.latitude = this.location.location.lat;
+    this.longitude = this.location.location.lng;
+    console.log(this.latitude, this.longitude)
+    this.ngOnInit();
+  }
+
   ngOnInit(): void{
-        var map = L.map('map').setView([51.5, -0.09], 13);
+        var map = L.map('map').setView([this.latitude, this.longitude], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -29,7 +45,8 @@ export class AppComponent implements OnInit{
         iconSize:     [35, 45], // size of the icon
     });
 
-      var marker = L.marker([51.5, -0.09], {icon: imgMarcador}).addTo(map);
+      var marker = L.marker([this.latitude, this.longitude], {icon: imgMarcador}).addTo(map);
+
 
 
    /// Código do IP
@@ -38,9 +55,5 @@ export class AppComponent implements OnInit{
     this.location = response;
   })
   }
-
-
-
-
-
 }
+

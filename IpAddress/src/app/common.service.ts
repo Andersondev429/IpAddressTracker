@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
+import { AppComponent } from './app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,9 @@ export class CommonService {
 
   constructor(private http:HttpClient) { }
 
+  ip: string = "8.8.7.1";
 
   getLocation(){
-    return this.http.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_pUiG1IHAK2Jii75VG7jlImT6YACJk&ipAddress=8.8.8.8');
+    return this.http.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_pUiG1IHAK2Jii75VG7jlImT6YACJk&ipAddress=' + this.ip);
   }
 }

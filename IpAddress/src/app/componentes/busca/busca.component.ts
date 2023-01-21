@@ -6,7 +6,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class BuscaComponent implements OnInit {
 
-  public ipText: any;
+  @Input() ipText: any;
+
+  @Output() ipChange: EventEmitter<any> = new EventEmitter();
 
 
   @Input() public location:any;
@@ -17,6 +19,7 @@ export class BuscaComponent implements OnInit {
   }
 
   EnviarIp(){
-    console.log(this.ipText)
+    console.log(this.ipText);
+    this.ipChange.emit(this.ipText)
   }
 }
