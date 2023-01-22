@@ -9,7 +9,15 @@ export class CommonService {
 
   constructor(private http:HttpClient) { }
 
-  ip: string = "8.8.7.1";
+  public fromIpText: any;
+
+  ip: any = "8.8.7.1";
+
+  public updateFromIpText(newValue: any) {
+    this.ip = newValue;
+    console.log(this.ip);
+    this.getLocation();
+  }
 
   getLocation(){
     return this.http.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_pUiG1IHAK2Jii75VG7jlImT6YACJk&ipAddress=' + this.ip);

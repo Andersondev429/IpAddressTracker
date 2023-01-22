@@ -22,13 +22,17 @@ export class AppComponent implements OnInit{
   constructor(private CommonService:CommonService){
   }
 
+  public update(){
+    this.CommonService.updateFromIpText(this.ipText)
+  }
+
 
   receberIp(event: any){
     this.ipText = event;
     this.latitude = this.location.location.lat;
     this.longitude = this.location.location.lng;
-    console.log(this.latitude, this.longitude)
-    this.ngOnInit();
+    console.log(this.latitude, this.longitude);
+    this.update();
   }
 
   ngOnInit(): void{
